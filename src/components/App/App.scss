@@ -1,0 +1,547 @@
+// -------------------------- Шрифты-------------------------------
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+// --------------------------Цвета--------------------------------------------------------
+$light-grey: #897bb8;
+$grey: #0C3C84;
+$white: #fff;
+$black: #202020;
+$gold: #B4A6E2;
+$red: #e07272;
+$search: #0C3C84;
+
+// --------------------------Тело и оболочка----------------------------------------------
+body {
+  font-family: "Roboto";
+  font-size: 24px;
+  font-weight: 400;
+  @media screen and (max-width: 620px) {
+    font-size: 20px;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: $black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../../assets/background.jpg");
+  background-attachment: fixed;
+  @media screen and (max-width: 620px) {
+    padding-top: 20px;
+    flex-direction: column;
+  }
+}
+
+.weather {
+  width: 600px;
+  height: 435px;
+  border-radius: 5px;
+  border: solid 5px $gold;
+  overflow: hidden;
+  @media screen and (max-width: 620px) {
+    width: 70%;
+    height: 100%;
+  }
+}
+
+// --------------------------Поиск----------------------------------------------------
+.search__container {
+  width: 590px;
+  height: 45px;
+  background-color: $grey;
+  display: flex;
+  align-items: center;
+  border-bottom: 5px solid $gold;
+  @media screen and (max-width: 620px) {
+    width: 100%;
+  }
+}
+
+.weather__search {
+  padding-left: 20px;
+  font-size: 20px;
+  color: $white;
+  width: 530px;
+  height: 40px;
+  transition: 0.3s ease-in-out;
+  background-color: $search;
+  &.active {
+ 
+  background-color: $red;
+  }
+  &::placeholder {
+    color: $gold;
+    opacity: 0.5;
+  }
+  @media screen and (max-width: 620px) {
+    width: 80%;
+  }
+  
+}
+
+.svg__search {
+  margin-top: 2px;
+  margin-left: 13px;
+  fill: $gold;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    fill: $white;
+  }
+}
+
+.search__button {
+  outline: none;
+  /* Для синий ободки */
+  border: 0;
+  background: transparent;
+}
+
+// --------------------------Контейнер погоды после поиска----------------------------------------
+.weather__container {
+  display: flex;
+  @media screen and (max-width: 620px) {
+    height: 95%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// --------------------------Левый контейнер с описанием погоды-----------------------------------
+.weather__info {
+  width: 300px;
+  height: 380px;
+  border-right: 5px solid $gold;
+  background: linear-gradient(225deg, #f0f0f0, #7A79C5);
+  @media screen and (max-width: 620px) {
+    width: 100%;
+    border-right: none;
+  }
+}
+
+.info__body {
+  padding: 20px;
+  height: 335px;
+  width: 300px;
+  border-bottom: 5px solid $gold;
+  @media screen and (max-width: 620px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 410px) {
+    padding: 10px;
+    padding-bottom: 20px;
+  }
+}
+
+.now__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 90%;
+}
+.now__weather__icon {
+  transition: transform 0.8s ease-in-out;
+
+  &:hover {
+    transform: rotate(360deg);
+  }
+}
+
+.now__temperature {
+  position: relative;
+  color: $white;
+  width: 100%;
+  height: 5%;
+  font-size: 70px; 
+  line-height: 82px;
+  &::after {
+    position: absolute;
+    margin-left: 10px;
+    top: 15px;
+    margin-left: 1px;
+    content: "";
+    width: 13px;
+    height: 13px;
+    border: 4px solid $white;
+    border-radius: 50%;
+  }
+}
+
+.now__city__favorite {
+  height: 10%;
+  position: relative;
+  display: flex;
+}
+
+.now__city {
+  font-size: 24px;
+  color: #f8f8f8;
+}
+
+.now__city__details {
+  font-weight: 600;
+  font-size: 26px;
+  color: #354A89;
+}
+
+.now__city__forecast {
+  font-weight: 600;
+  font-size: 26px;
+  color: #354A89;
+}
+
+.now__favorite {
+  background-color: inherit;
+  position: absolute;
+  right: 0;
+}
+
+.now__favorite__icon {
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  fill: $black;
+  &:hover {
+    fill: $red;
+  }
+}
+
+// --------------------------3 БЛОКА-----------------------------------
+.info__now {
+  height: 100%;
+}
+
+.info__details {
+  height: 100%;
+}
+.info__forecast {
+  height: 100%;
+}
+
+.target__block {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
+
+.forecast__future {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $white;
+  font-size: 24px;
+  height: 100%;
+}
+
+.margintop {
+  margin-top: 10px;
+}
+
+.weather__details__list {
+  margin-top: 48px;
+  width: 200px;
+  height: 196px;
+  color: $white;
+  font-size: 24px;
+}
+
+.weather__temp {
+  position: relative;
+  &::after {
+    position: absolute;
+    margin-left: 2px;
+    top: 3px;
+    margin-left: 3px;
+    content: "";
+    width: 5px;
+    height: 5px;
+    border: 1px solid $white;
+    border-radius: 50%;
+  }
+}
+
+.weather__forecast {
+  margin-bottom: 10px;
+  color: $white;
+  font-size: 18px;
+  position: relative;
+  &::after {
+    position: absolute;
+    margin-left: 2px;
+    top: 1.5px;
+    margin-left: 3px;
+    content: "";
+    width: 5px;
+    height: 5px;
+    border: 1px solid $white;
+    border-radius: 50%;
+  }
+}
+
+.weather__feels {
+  position: relative;
+  &::after {
+    position: absolute;
+    margin-left: 2px;
+    top: 3px;
+    margin-left: 3px;
+    content: "";
+    width: 5px;
+    height: 5px;
+    border: 1px solid $white;
+    border-radius: 50%;
+  }
+}
+.weather__clouds {
+}
+.weather__sunrise {
+}
+.weather__sunset {
+}
+
+.weather__item {
+  margin-bottom: 10px;
+  color: $white;
+}
+
+.info__tabs {
+  border-collapse: collapse;
+  display: flex;
+  & :nth-child(1) {
+    border-right: 5px solid $gold;
+  }
+  & :nth-child(2) {
+    border-right: 5px solid $gold;
+  }
+}
+.tabs_item {
+  width: 100px;
+  height: 45px;
+  text-decoration: none;
+  color: $gold;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
+  background-color: #354a89;
+  &:hover {
+    background-color: $gold;
+    color: $black;
+  }
+  &.active {
+    background-color: $gold;
+    color: $black;
+  }
+}
+
+// --------------------------Правый контейнер с добавленными локациями------------------------------
+
+.locations {
+  width: 300px;
+  background: linear-gradient(300deg, #7A79C5, #f0f0f0);
+  @media screen and (max-width: 620px) {
+    width: 100%;
+    height: 100%;
+    border-top: 5px solid $gold;
+  }
+}
+
+.locations__added {
+  position: relative;
+  color: #354A89;
+  height: 68px;
+  width: 290px;
+  border-bottom: 5px solid $gold;
+  @media screen and (max-width: 620px) {
+    padding-top: 50px;
+  }
+}
+.added__text {
+  position: absolute;
+  left: 18px;
+  bottom: 17px;
+}
+.locations__list {
+  padding: 35px 0px 35px 18px;
+  @media screen and (max-width: 620px) {
+    padding: 15px 0px 15px 18px;
+  }
+}
+.locations__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: $white;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.label__location {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+input[type="checkbox"] {
+  margin-right: 12px;
+  min-width: 21px;
+  height: 21px;
+  color: $black;
+  border: 1px solid $black;
+  border-radius: 50%;
+  appearance: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+    position: relative;
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: $gold;
+    opacity: 0;
+  }
+
+  &:checked {
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.delete__location__button {
+  position: absolute;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: flex-start;
+  outline: none; /* Для синий ободки */
+  border: 0;
+  background: transparent;
+}
+
+.delete__button {
+  opacity: 0.5;
+  fill: $gold;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    opacity: 1;
+    fill: $red;
+  }
+}
+
+.forecast__list {
+  height: 250px;
+  width: 265px;
+  overflow-y: scroll;
+  margin-top: 10px;
+}
+.forecast__item {
+  font-size: 18px;
+  font-weight: 400;
+  color: $white;
+  padding: 8px;
+  width: 235px;
+  height: 120px;
+  border: solid 1px $gold;
+  background: linear-gradient(225deg, #9384c5, #7b6fa6);
+  margin-bottom: 10px;
+}
+.about__weather {
+  position: relative;
+  display: flex;
+}
+
+.data__time {
+  width: 230px;
+  height: 36px;
+  display: flex;
+  position: relative;
+}
+
+.data {
+}
+.time {
+  position: absolute;
+  right: 0px;
+  margin-right: 18px;
+}
+
+.weather__type-icon {
+  
+  width: 50px;
+  height: 50px;
+}
+.weather__type {
+  position: absolute;
+  right: 5px;
+}
+.weather__icon {
+  position: absolute;
+  right: 0px;
+  top: 10px
+}
+.lil__icon {
+  position: absolute;
+  right: 0px;
+  width: 60px;
+  height: 60px;
+}
+
+.footer {
+  position: absolute;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0px;
+  width: 100%;
+  height: 30px;
+  background-color: $gold;
+  color: $grey;
+  text-decoration: none;
+  @media screen and (max-width: 620px) {
+    position: sticky;
+    margin-top: 25px;
+  }
+}
+.footer__link {
+  transition: 0.4s ease-in-out;
+  &:hover {
+    text-decoration: underline;
+    color: $white;
+  }
+  color: $grey;
+}
+
+//-----------------------------------------Custom scroll-----------------------------------------------
+
+::-webkit-scrollbar {
+	width: 8px;
+  border-radius: 5px;
+	background-color: #fff;
+	@media screen and (max-width: 620px) {
+    width: 10px;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+	background-color: $light-grey;
+	&:hover {
+		background-color: $grey;
+	}
+}
